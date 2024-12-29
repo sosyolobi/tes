@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <title>Website Template</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Mengambil elemen CSS dari file Anda */
+        :root {
+            --border-radius: 5px;
+            --box-shadow: 2px 2px 10px;
+            --color: #118bee;
+            --color-bg: #fff;
+            --color-text: #000;
+        }
+        body {
+            background: var(--color-bg);
+            color: var(--color-text);
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .search-box {
+            width: 85%;
+            height: 50px;
+            padding: 0 20px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            outline: none;
+        }
+        .search-box:focus {
+            border: 1px solid #118bee;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+        main {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Website Template</h1>
+        <form id="search-box" action="/search" method="GET">
+            <input
+                type="text"
+                class="search-box"
+                name="q"
+                placeholder="Search here and hit enter..."
+                autocomplete="off"
+            />
+        </form>
+    </header>
+
+    <main>
+        <section>
+            <h2>Welcome</h2>
+            <p>This is a converted version of your website template.</p>
+        </section>
+    </main>
+
+    <script>
+        // Contoh implementasi logika pencarian sederhana
+        document.getElementById('search-box').onsubmit = function (e) {
+            e.preventDefault();
+            const query = e.target.q.value;
+            if (query) {
+                window.location.href = `/search?q=${encodeURIComponent(query)}`;
+            }
+        };
+    </script>
+</body>
+</html>
